@@ -1,13 +1,11 @@
 
-package main.java.vom.github.trete.aula2;
+package com.github.trete.aula2;
 
 import org.junit.Test;
 
-import static main.java.com.github.trete.aula2.Matematica.*;
+import static com.github.trete.aula2.Matematica.*;
 
-import static org.junit.Assert.*;
-
-public class MatematicaTest {
+public class SomaNaturaisTest {
     @Test(expected = IllegalArgumentException.class)
     public void somaMenorQue1Invalido(){
         somaNaturais(0);

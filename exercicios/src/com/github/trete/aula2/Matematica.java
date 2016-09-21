@@ -1,4 +1,4 @@
-package main.java.com.github.trete.aula2;
+package com.github.trete.aula2;
 
 public class Matematica {
     
