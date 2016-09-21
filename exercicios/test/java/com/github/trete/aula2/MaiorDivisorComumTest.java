@@ -1,14 +1,17 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
+
 package com.github.trete.aula2;
 
-/**
- *
- * @author aluno
- */
+import static com.github.trete.aula2.Matematica.maiorDivisorComum;
+import org.junit.Test;
+
 public class MaiorDivisorComumTest {
+    @Test(expected = IllegalArgumentException.class)
+    public void maiorDivisorComumComAMaiorQueB(){
+        maiorDivisorComum(400,2);
+    }
     
+    @Test(expected = IllegalArgumentException.class)
+    public void maiorDivisorComumComBNegativo(){
+        maiorDivisorComum(5, -10);
+    }
 }
