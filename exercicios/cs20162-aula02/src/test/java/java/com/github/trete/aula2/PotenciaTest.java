@@ -1,12 +1,13 @@
 
-package com.github.trete.aula2;
+package java.com.github.trete.aula2;
 
+import com.github.trete.aula2.Matematica;
 import org.junit.Test;
 
 public class PotenciaTest {
     @Test(expected = IllegalArgumentException.class)
     public void poenciaComBaseNegativaInvalida(){
-        Matematica.potencia(-5,12);
+        Matematica.potencia(-5, 12);
     }
     
     @Test(expected = IllegalArgumentException.class)
