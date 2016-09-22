@@ -1,4 +1,4 @@
-package java.com.github.trete.aula2;
+package com.github.trete.aula2;
 
 public class Matematica {
     
@@ -6,8 +6,6 @@ public class Matematica {
   * Obtem o valor da soma dos primeors n naturais.
   * 
  * @param n A quantidade de números naturais a serem somados em ordem
- * 
- * @throws IllegalArugumentException Se o número for menor ou igual a 0
  * 
  * @return O valor numérico da soma dos primeiros n naturais
  */
@@ -28,8 +26,6 @@ public class Matematica {
 * @param a Número a ser somado a si mesmo b vezes
 * 
 * @param b Número de vezes que a será somado a si mesmo
-* 
-* @throws IllegalArgumentExcepion se um dos parâmetros for negativo
 * 
 * @return O valor numérico do produto entre a e b
 */
@@ -131,8 +127,6 @@ public class Matematica {
   * Verifica se um natural é primo.
   * 
 * @param n O número que será verificado se é primo
-* 
-* @throws IlegalArgumentException se o número for menor ou igual a 1
 * 
 * @return O valor lógico da propriedade de ser primo em n
 */

@@ -1,5 +1,5 @@
 
-package java.com.github.trete.aula2;
+package com.github.trete.aula2;
 
 import org.junit.Test;
 
