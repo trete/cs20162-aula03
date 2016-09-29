@@ -15,7 +15,7 @@ public class MatematicaMais {
      * @return O valor numérico da soma elementar até o numero
      *
      */
-    public double somaElementar(int numero) throws IllegalArgumentException {
+    public static double somaElementar(int numero) throws IllegalArgumentException {
         if (numero <= 1) {
             throw new IllegalArgumentException("valor invalido para calculo");
         }
@@ -45,7 +45,7 @@ public class MatematicaMais {
      *
      * @throws IllegalArgumentException se qntCasas for menor ou igual a 1
      */
-    public double valorPi(int qntCasas) throws IllegalArgumentException {
+    public static double valorPi(int qntCasas) throws IllegalArgumentException {
         if (qntCasas <= 1) {
             throw new IllegalArgumentException("valor invalido para calculo");
         }
@@ -77,8 +77,8 @@ public class MatematicaMais {
      * @throws IllegalArgumentException se o número a ser fatorado for menor ou
      * igual a 1
      */
-    public int fatorial(int numero) throws IllegalArgumentException {
-        if (numero <= 1) {
+    public static int fatorial(int numero) throws IllegalArgumentException {
+        if (numero < 1) {
             throw new IllegalArgumentException("valor invalido para calculo");
         }
 
@@ -106,7 +106,7 @@ public class MatematicaMais {
      * @throws IllegalArgumentException se a base for menor que 2 ou se o numero
      * for menor que 1
      */
-    public double logaritmo(int numero, int base)
+    public static double logaritmo(int numero, int base)
             throws IllegalArgumentException {
         if (base < 2 || numero < 1) {
             throw new IllegalArgumentException("valor invalido para calculo");
@@ -145,7 +145,7 @@ public class MatematicaMais {
  * segundoAureo for menor que primeiroAureo, e se a precisao for menor ou igual
  * a 0
  */
-    public double razaoAurea(int primeiroAureo, int segundoAureo, int precisao)
+    public static double razaoAurea(int primeiroAureo, int segundoAureo, int precisao)
             throws IllegalArgumentException{
         if(primeiroAureo < 0 || segundoAureo < primeiroAureo || precisao <= 0){
             throw new IllegalArgumentException("um ou mais parâmetros"
@@ -184,23 +184,23 @@ public class MatematicaMais {
  *
  *@throws IllegalArgumentException se numero for menor que 1
  */
-	public boolean quadradoPerfeito(int numero)
-                throws IllegalArgumentException{
-		if(numero < 1){
-			throw new IllegalArgumentException(
-                                "parâmetro inválido");
+    public static boolean quadradoPerfeito(int numero)
+        throws IllegalArgumentException{
+	if(numero < 1){
+            throw new IllegalArgumentException(
+                           "parâmetro inválido");
 
 		}
 		
-		int indice = 1, checador = 1;
+	int indice = 1, checador = 1;
 		
-		while(indice < numero){
-			checador += 2;
-			
-			indice += checador;
-		}
+	while(indice < numero){
+            checador += 2;
+            
+            indice += checador;
+	}
 		
-		return indice == checador;
+	return indice == checador;
 	}
 	
  /**
@@ -211,27 +211,27 @@ public class MatematicaMais {
  *
  *@param divisor O número que dividirá o dividendo para obtenção do resto
  *
- *@returns O valor numérico do resto da divisão inteira
+ *@return O valor numérico do resto da divisão inteira
  * do dividendo pelo divisor
  *
  *@throws IllegalArgumentException se o dividendofor negativo ou
  * se o divisor for menor ou igual a 0
  */
-	public int resto(int dividendo, int divisor)
-                throws IllegalArgumentException{
-		if(dividendo < 0 || divisor <= 0){
-			throw new IllegalArgumentException(
-                                "um ou mais parâmetros inválidos");
-		}
+    public static int resto(int dividendo, int divisor)
+        throws IllegalArgumentException{
+	if(dividendo < 0 || divisor <= 0){
+            throw new IllegalArgumentException(
+                    "um ou mais parâmetros inválidos");
+        }
+	
+	int resto = dividendo;
 		
-		int resto = dividendo;
-		
-		while(divisor <= resto){
-			resto -= divisor;
-		}
-		
-		return resto;
+	while(divisor <= resto){
+            resto -= divisor;
 	}
+		
+	return resto;
+    }
 	
 /**
  *Obtém o valor aproximado da raiz quadrada de um número
@@ -246,23 +246,23 @@ public class MatematicaMais {
 *@throws IllegalArgumentException se numero for menor que 0 ou
 * se indice for menor ou igual a 0
 */
-	public double raizQuadrada(double numero, int indice)
-                throws IllegalArgumentException{
+    public static double raizQuadrada(double numero, int indice)
+        throws IllegalArgumentException{
 	if(numero < 0 || indice <= 0){
-		throw new IllegalArgumentException(
-                        "um ou mais parâmetros inválidos");
+            throw new IllegalArgumentException(
+                     "um ou mais parâmetros inválidos");
 	}
 	
 	double raiz =1;
 	
 	while(indice >= 0){
-		raiz = (raiz + numero / raiz) / 2;
+            raiz = (raiz + numero / raiz) / 2;
 		
-		indice--;
+            indice--;
 	}
 	
 	return raiz;
-	}
+    }
 	
 /**
  *Obtém o valor de um polinomio com coeficientes num vetor para
@@ -278,25 +278,24 @@ public class MatematicaMais {
 *
 *@throws IllegalArgumentException se o grau for menor que 1
 */
-	public double regraHorner(double x, int grau, double coeficiente[])
-                throws IllegalArgumentException{
-		if(grau <= 1){
-			throw new IllegalArgumentException(
-                                "parâmetro inválido");
-		}
-		
-		double polinomio = coeficiente[grau];
-		
-		int indice = grau - 1;
-		
-		while(indice >= 0){
-			polinomio = polinomio * x + coeficiente[indice];
-			
-			indice--;
-		}
-		
-		return polinomio;
+    public static double regraHorner(double x, int grau, double coeficiente[])
+        throws IllegalArgumentException{
+	if(grau <= 1){
+            throw new IllegalArgumentException("parâmetro inválido");
 	}
+		
+	double polinomio = coeficiente[grau];
+		
+	int indice = grau - 1;
+		
+	while(indice >= 0){
+            polinomio = polinomio * x + coeficiente[indice];
+			
+            indice--;
+	}
+		
+	return polinomio;
+    }
 	
 /**
  *Obtém o numero-ésimo número da sequência de fibonacci
@@ -308,28 +307,28 @@ public class MatematicaMais {
 *
 *@throws IllegalArgumentException se numero for menor ou igual a 0
 */
-	public int fibonacci(int numero)throws IllegalArgumentException{
-		if(numero <= 0){
-			throw new IllegalArgumentException(
-                                "parâmetro inválido");
-		}
-		
-		int primeiro = 0, segundo = 1, primeiroAux, segundoAux;
-		
-		if(numero == 1){
-			return numero;
-			}
-		int indice = 2;
-		
-		while(indice <= numero){
-			segundoAux = segundo;
-			
-			segundo += primeiro;
-			
-			primeiro = segundoAux;
-			indice++;
-		}
-		
-		return primeiro;
+    public static int fibonacci(int numero)throws IllegalArgumentException{
+	if(numero <= 0){
+            throw new IllegalArgumentException("parâmetro inválido");
 	}
+		
+	int primeiro = 0, segundo = 1, segundoAux;
+		
+	if(numero == 1){
+            return numero;
+		}
+	int indice = 2;
+		
+	while(indice <= numero){
+            segundoAux = segundo;
+	
+            segundo += primeiro;
+	
+            primeiro = segundoAux;
+	
+            indice++;
+        }
+	
+	return primeiro;
+    }
 }
