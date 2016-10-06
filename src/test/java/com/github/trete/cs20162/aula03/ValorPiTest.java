@@ -10,9 +10,14 @@ public class ValorPiTest {
         MatematicaMais.valorPi(0);
     }
     
+    @Test(expected = IllegalArgumentException.class)
+    public void qntCasasIgualA1Invalido(){
+        MatematicaMais.valorPi(1);
+    }
+    
     @Test
     public void valorArbitrarioDeTeste(){
-        assertEquals( 3.14, MatematicaMais.valorPi(2), 0.001);
+        assertEquals( 3.141, MatematicaMais.valorPi(3), 0.001);
     }
     
 }

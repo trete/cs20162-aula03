@@ -17,6 +17,6 @@ public class FibonacciTest {
     
     @Test
     public void valorArbitrarioDeTeste(){
-        assertEquals(MatematicaMais.fibonacci(5), 5);
+        assertEquals( 5,MatematicaMais.fibonacci(5));
     }
 }

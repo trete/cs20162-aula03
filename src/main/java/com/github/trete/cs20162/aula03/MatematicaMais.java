@@ -15,7 +15,8 @@ public class MatematicaMais {
      * @return O valor numérico da soma elementar até o numero
      *
      */
-    public static double somaElementar(int numero) throws IllegalArgumentException {
+    public static double somaElementar(int numero)
+            throws IllegalArgumentException {
         if (numero <= 1) {
             throw new IllegalArgumentException("valor invalido para calculo");
         }
@@ -145,7 +146,8 @@ public class MatematicaMais {
  * segundoAureo for menor que primeiroAureo, e se a precisao for menor ou igual
  * a 0
  */
-    public static double razaoAurea(int primeiroAureo, int segundoAureo, int precisao)
+    public static double 
+        razaoAurea(int primeiroAureo, int segundoAureo, int precisao)
             throws IllegalArgumentException{
         if(primeiroAureo < 0 || segundoAureo < primeiroAureo || precisao <= 0){
             throw new IllegalArgumentException("um ou mais parâmetros"
