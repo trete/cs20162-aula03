@@ -1,5 +1,6 @@
 package com.github.trete.cs20162.aula03;
 
+import static junit.framework.Assert.assertEquals;
 import org.junit.Test;
 
 public class QuadradoPerfeitoTest {
@@ -10,6 +11,11 @@ public class QuadradoPerfeitoTest {
         
         @Test
         public void valorArbitrarioDeTeste(){
-            MatematicaMais.quadradoPerfeito(81);
+            assertEquals(true, MatematicaMais.quadradoPerfeito(81));
+        }
+        
+        @Test
+        public void valorArbitrarioDeTesteInavlido(){
+            assertEquals(true, MatematicaMais.quadradoPerfeito(322));
         }
 }

@@ -1,3 +1,4 @@
+
 package com.github.trete.cs20162.aula03;
 
 public class Matematica {
@@ -5,17 +6,19 @@ public class Matematica {
  /** 
   * Obtem o valor da soma dos primeors n naturais.
   * 
- * @param n A quantidade de números naturais a serem somados em ordem
+ * @param numero A quantidade de números naturais a serem somados em ordem
  * 
- * @return O valor numérico da soma dos primeiros n naturais
+ * @return O valor numérico da soma dos primeiros "numero" naturais
+ * 
+ * @throws IllegalArgumentException se numero for menor que 0
  */
-    public static int somaNaturais(int n){
-        if(n <= 0){
+    public static int somaNaturais(int numero) throws IllegalArgumentException{
+        if(numero <= 0){
             throw new IllegalArgumentException("valor inválido");
         }
         int soma;
         
-        soma = n * (n + 1) / 2;
+        soma = numero * (numero + 1) / 2;
         
         return soma;
     }
@@ -23,21 +26,25 @@ public class Matematica {
  /**
  * Obtém o produto entre dois naturais.
  * 
-* @param a Número a ser somado a si mesmo b vezes
+* @param primeiroFator Número a ser somado a si mesmo segundoFator vezes
 * 
-* @param b Número de vezes que a será somado a si mesmo
+* @param segundoFator Número de vezes que primeiroFator será somado a si mesmo
 * 
-* @return O valor numérico do produto entre a e b
+* @return O valor numérico do produto entre o primeiro fator e o segundo fator
+* 
+* @throws IllegalArgumentException se o primeiroFator for menor que 0 ou se
+* o segundoFator for menor que 0
 */
-    public static int produto(int a, int b){
-        if(a < 0 || b < 0){
+    public static int produto(int primeiroFator, int segundoFator)
+            throws IllegalArgumentException{
+        if(primeiroFator < 0 || segundoFator < 0){
             throw new IllegalArgumentException("valor inválido");
         }
         
         int produto = 0, índice;
         
-        for(índice = 0; índice < b; índice++){
-            produto = produto + a;
+        for(índice = 0; índice < segundoFator; índice++){
+            produto = produto + primeiroFator;
         }
         return produto;
     }
@@ -53,9 +60,10 @@ public class Matematica {
  * ou igais a 0
  * 
  * @return O valor numéirco da potência na qual
- * base é a base e expoente é o expoente
+ * base é a base e expoente é o expoente 
  */
-    public static int potencia(int base, int expoente){
+    public static int potencia(int base, int expoente)
+            throws IllegalArgumentException{
         if(base <= 0 || expoente <=0){
             throw new IllegalArgumentException("valor inválido");
         }
@@ -73,22 +81,23 @@ public class Matematica {
    * Verifica a propriedade 3025 em um número inteiro entre 0 e 9999.
    * 
  * 
- * @param número O número no qual será verificada a propriedade 3025
+ * @param numero O número no qual será verificada a propriedade 3025
  * 
  * @throws IllegalArgumentException se o número for menor ou igual a 0 ou 
  * maior ou igual a 9999
  * 
  * @return O valor lógico da existencia da propriedade 3025 em número
  */
-    public static boolean verificaPropriedade3025(int número){
-        if(número >= 0 && número<=9999){
+    public static boolean verificaPropriedade3025(int numero)
+            throws IllegalArgumentException{
+        if(numero >= 0 && numero<=9999){
             boolean propriedade;
             
-            int verificador = número / 100 + número%100;
+            int verificador = numero / 100 + numero%100;
             
             verificador = verificador * verificador;
             
-            propriedade = verificador == número;
+            propriedade = verificador == numero;
             
             return propriedade;
         }
@@ -101,44 +110,48 @@ public class Matematica {
   * Verifica a propriedade 153 em um inteiro entre 0 e 9999.
   * 
 * 
-* @param n O número no qual será verificada a propriedade 153
+* @param numero O número no qual será verificada a propriedade 153
 * 
 * @throws IllegalArgumentException se o número for menor ou igual a 0 ou 
 * maior ou igual a 9999
 * 
 * @return O valor lógico da existencia da propriedade 153 em número
 */
-    public static boolean verificaPropriedade153(int n){
-        if(n < 0 || n>9999){
+    public static boolean verificaPropriedade153(int numero)
+            throws IllegalArgumentException{
+        if(numero < 0 || numero>9999){
             throw new IllegalArgumentException("número tem que ser maior que 0"
                     + " e menor que 10000");
         }
         
         boolean propriedade;
         
-        int i = n / 100 ;
-        int j = (n - 100 * i) / 10;
-        int k = n % 10;
+        int i = numero / 100 ;
+        int j = (numero - 100 * i) / 10;
+        int k = numero % 10;
         
-        return propriedade = (i * i * i + j * j * j + k * k * k) == n;
+        return propriedade = (i * i * i + j * j * j + k * k * k) == numero;
     }
     
  /**
   * Verifica se um natural é primo.
   * 
-* @param n O número que será verificado se é primo
+* @param numero O número que será verificado se é primo
 * 
-* @return O valor lógico da propriedade de ser primo em n
+* @return O valor lógico da propriedade de ser primo em numero
+* 
+* @throws IllegalArgumentException se numero for menor ou igual a 1
 */
-    public static boolean verificaPrimo(int n) {
-        if(n <= 1){
+    public static boolean verificaPrimo(int numero)
+            throws IllegalArgumentException {
+        if(numero <= 1){
             throw new IllegalArgumentException("o número deve ser maior que 1");
         }
         
         int i = 2;
 
-        while (i <= (n - 1)) {
-            if (n % i == 0) {
+        while (i <= (numero - 1)) {
+            if (numero % i == 0) {
                 return false;
             }            
         }
@@ -148,56 +161,59 @@ public class Matematica {
  /**
   * Obtém o maior divisor comum entre dois naturais.
   * 
-* @param a Maior número no cálculo de maior divisor comum
+* @param primeiroNumero Maior número no cálculo de maior divisor comum
 * 
-* @param b Menor número no cálculo de maior divisor comum
+* @param segundoNumero Menor número no cálculo de maior divisor comum
 * 
-* @throws IllegalArgumentException se a for maior que b
+* @throws IllegalArgumentException se primeiroNumero for maior que segundoNumero
 * 
-* @throws IllegalArgumentException se b for negativo
+* @throws IllegalArgumentException se segundoNumero for negativo
 * 
-* @return O valor numérico do maior divisor comum enre a e b
+* @return O valor numérico do maior divisor comum enre
+* primeiroNumero e segundoNumero
 */
-    public static int maiorDivisorComum(int a,int b){
-        if(b < a){
+    public static int maiorDivisorComum(int primeiroNumero,int segundoNumero)
+            throws IllegalArgumentException{
+        if(segundoNumero < primeiroNumero){
             throw new IllegalArgumentException("o primeiro parâmetro deve ser"
                     + "maior ou igual ao segundo");
         }
-        if(b<0){
+        if(segundoNumero<0){
             throw new IllegalArgumentException("os parâmetros "
                     + "devem ser positivos");
         }
         
         int m;
         
-        while(b != 0){
-            m = a % b;
+        while(segundoNumero != 0){
+            m = primeiroNumero % segundoNumero;
            
-            a = b;
+            primeiroNumero = segundoNumero;
             
-            b = m;
+            segundoNumero = m;
         }
         
-        return a;
+        return primeiroNumero;
     }
     
  /**
   * Obtém o enésimo número harmônico da sequência.
   * 
-* @param n Tamanho da sequencia de números harmônicos somados
+* @param numero Tamanho da sequencia de números harmônicos somados
 * 
-* @throws IllegalArgumentException se n for menor que 1
+* @throws IllegalArgumentException se numero for menor que 1
 * 
 * @return O valor numérico do enésimo número harmônico
 */
-    public static double numeroHarmonico(int n){
-        if(n < 1){
+    public static double numeroHarmonico(int numero)
+            throws IllegalArgumentException{
+        if(numero < 1){
             throw new IllegalArgumentException("o número deve ser maior "
                     + "ou igual a 1");
         }
         double i = 2, s = 1;
         
-        while(i <= n){
+        while(i <= numero){
             s += 1 / i;
             i++;
         }
