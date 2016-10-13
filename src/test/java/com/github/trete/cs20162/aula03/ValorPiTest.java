@@ -17,7 +17,7 @@ public class ValorPiTest {
     
     @Test
     public void valorArbitrarioDeTeste(){
-        assertEquals( 3.141, MatematicaMais.valorPi(3), 0.001);
+        assertEquals( 3.141, MatematicaMais.valorPi(2), 0.001);
     }
     
 }

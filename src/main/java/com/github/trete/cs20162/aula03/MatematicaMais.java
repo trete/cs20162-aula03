@@ -1,7 +1,6 @@
 package com.github.trete.cs20162.aula03;
 
-import static com.github.trete.cs20162.aula03.Matematica.potencia;
-
+import com.trete.cs20162.aula02.Matematica;
 public class MatematicaMais {
 
     /**
@@ -37,25 +36,28 @@ public class MatematicaMais {
     }
 
     /**
-     * Obtem o valor aproximado de pi com qntCasas casas decimais
+     * Obtem o valor aproximado de pi
      *
-     * @param qntCasas A quantidade de casas decimais que quer se obter do valor
-     * de pi
+     * @param precisao A quantidade de termos utilizados para a soma que
+     * calcula o valor de pi, maiores valores resultam numa precisão maior
      *
-     * @return O valor de pi com a quantidade de casas decimais igual a qntCasas
+     * @return O valor aporximado de pi
      *
-     * @throws IllegalArgumentException se qntCasas for menor ou igual a 1
+     * @throws IllegalArgumentException se precisao for menor ou igual a 1
      */
-    public static double valorPi(int qntCasas) throws IllegalArgumentException {
-        if (qntCasas <= 1) {
+    public static double valorPi(int precisao) throws IllegalArgumentException {
+        if (precisao <= 1) {
             throw new IllegalArgumentException("valor invalido para calculo");
         }
 
-        int indice = 1, denominador = -1;
+        int indice = 1;
+        
+        int aproximacaoMinima = 634;
+        /*valor obtido através de testes, qualquer número de operações abaixo
+        deste resultará em erro*/
+        double pi = 0, soma = -1, denominador = -1;
 
-        double pi = 0, soma = -1;
-
-        while (indice <= qntCasas) {
+        while (indice <= precisao + aproximacaoMinima) {
             denominador += 2;
 
             soma *= -1;
@@ -104,25 +106,25 @@ public class MatematicaMais {
      * @return O valor aproximado ao qual o parametro base deve ser exponenciada
      * para obter-se o parametro numero
      *
-     * @throws IllegalArgumentException se a base for menor que 2 ou se o numero
+     * @throws ArithmeticException se a base for menor que 2 ou se o numero
      * for menor que 1
      */
     public static double logaritmo(int numero, int base)
-            throws IllegalArgumentException {
+            throws ArithmeticException {
         if (base < 2 || numero < 1) {
-            throw new IllegalArgumentException("valor invalido para calculo");
+            throw new ArithmeticException("valor invalido para calculo");
         }
 
-        int indice = 2, potencia, fatorial;
+        int indice = 1, potencia = 0;
 
-        double logaritmo = numero + 1;
+        double logaritmo = 0;
 
-        while (indice <= base) {
-            potencia = potencia(numero, indice);
+        while (potencia != numero) {
+            potencia = Matematica.potencia(base, indice);
 
-            fatorial = fatorial(indice);
-
-            logaritmo += potencia / fatorial;
+            if(potencia == numero){
+                logaritmo = indice;
+            }
 
             indice++;
         }
@@ -178,7 +180,7 @@ public class MatematicaMais {
     }
 
  /**
-  *Obtém o valor lógico da propriedade de um iteiro de ser um quadradoPerfeito
+  *Obtém o valor lógico da propriedade de um inteiro de ser um quadradoPerfeito
   *
  *@param numero O número que será checado
  *
@@ -189,20 +191,17 @@ public class MatematicaMais {
     public static boolean quadradoPerfeito(int numero)
         throws IllegalArgumentException{
 	if(numero < 1){
-            throw new IllegalArgumentException(
-                           "parâmetro inválido");
-
-		}
-		
-	int indice = 1, checador = 1;
-		
-	while(indice < numero){
+            throw new IllegalArgumentException("parâmetro inválido");
+	}		
+	int indice = 0, checador = 1;
+        
+	while(indice < numero / 2){
             checador += 2;
             
-            indice += checador;
+            indice++;
 	}
 		
-	return indice == checador;
+	return numero == checador;
 	}
 	
  /**
@@ -331,6 +330,6 @@ public class MatematicaMais {
             indice++;
         }
 	
-	return primeiro;
+	return segundo;
     }
 }

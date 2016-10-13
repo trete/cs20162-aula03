@@ -5,18 +5,18 @@ import static junit.framework.Assert.assertEquals;
 import org.junit.Test;
 
 public class LogaritmoTest {
-    @Test(expected = IllegalArgumentException.class)
+    @Test(expected = ArithmeticException.class)
     public void baseMenorQue2Invalida(){
-        MatematicaMais.logaritmo(1, 123);
+        MatematicaMais.logaritmo(10, 1);
     }
     
-    @Test(expected = IllegalArgumentException.class)
+    @Test(expected = ArithmeticException.class)
     public void numeroMenorQue1Invalida(){
         MatematicaMais.logaritmo(123,0);
     }
     
     @Test
     public void valorArbitrarioDeTeste(){
-        assertEquals(2, MatematicaMais.logaritmo(10, 100), 0.00001);
+        assertEquals(10.0, MatematicaMais.logaritmo(1024, 2), 0.01);
     }
 }

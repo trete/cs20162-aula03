@@ -24,6 +24,6 @@ public class RegraHornerTest {
         arrayDeTeste[1] = 2;
         arrayDeTeste[2] = 2;
         
-        assertEquals(MatematicaMais.regraHorner(3, 2, arrayDeTeste), 74);
+        assertEquals(26.0, MatematicaMais.regraHorner(3, 2, arrayDeTeste),0.01);
     }
 }

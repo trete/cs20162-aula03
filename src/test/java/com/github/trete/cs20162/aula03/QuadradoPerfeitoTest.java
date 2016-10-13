@@ -11,11 +11,11 @@ public class QuadradoPerfeitoTest {
         
         @Test
         public void valorArbitrarioDeTeste(){
-            assertEquals(true, MatematicaMais.quadradoPerfeito(81));
+            assertEquals(true, MatematicaMais.quadradoPerfeito(25));
         }
         
         @Test
         public void valorArbitrarioDeTesteInavlido(){
-            assertEquals(true, MatematicaMais.quadradoPerfeito(322));
+            assertEquals(false, MatematicaMais.quadradoPerfeito(322));
         }
 }

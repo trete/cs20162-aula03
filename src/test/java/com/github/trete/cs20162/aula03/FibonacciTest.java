@@ -16,6 +16,11 @@ public class FibonacciTest {
     }
     
     @Test
+    public void numeroIgualA1DaEm1(){
+        assertEquals( 1,MatematicaMais.fibonacci(1));
+    }
+    
+    @Test
     public void valorArbitrarioDeTeste(){
         assertEquals( 5,MatematicaMais.fibonacci(5));
     }
