@@ -12,7 +12,7 @@ public class Matematica {
  */
     public static int somaNaturais(int numero){
         if(numero <= 0){
-            throw new IllegalArgumentException("valor inválido");
+            throw new IllegalArgumentException("valor menor ou igual a 0");
         }
         int soma;
         
@@ -32,7 +32,7 @@ public class Matematica {
 */
     public static int produto(int primeiroFator, int segundoFator){
         if(primeiroFator < 0 || segundoFator < 0){
-            throw new IllegalArgumentException("valor inválido");
+            throw new IllegalArgumentException("um ou mais valores negativos");
         }
         
         int produto = 0, índice;
@@ -58,7 +58,8 @@ public class Matematica {
  */
     public static int potencia(int base, int expoente){
         if(base <= 0 || expoente <=0){
-            throw new IllegalArgumentException("valor inválido");
+            throw new IllegalArgumentException
+                ("um ou mais valores negativos ou expoente igual a 0");
         }
         
         int potencia = 1, índice = 1;
@@ -94,7 +95,8 @@ public class Matematica {
             return propriedade;
         }
         else{
-            throw new IllegalArgumentException("valor inválido para teste");
+            throw new IllegalArgumentException("valor menor que 0"
+                    + " ou maior que 9999");
         }
     }
     
@@ -110,7 +112,7 @@ public class Matematica {
 * @return O valor lógico da existencia da propriedade 153 em número
 */
     public static boolean verificaPropriedade153(int numero){
-        if(numero < 0 || numero>9999){
+        if(numero < 0 || numero > 9999){
             throw new IllegalArgumentException("número tem que ser maior que 0"
                     + " e menor que 10000");
         }

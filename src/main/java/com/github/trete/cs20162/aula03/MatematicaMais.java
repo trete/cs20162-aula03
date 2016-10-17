@@ -17,7 +17,7 @@ public class MatematicaMais {
     public static double somaElementar(int numero)
             throws IllegalArgumentException {
         if (numero <= 1) {
-            throw new IllegalArgumentException("valor invalido para calculo");
+            throw new IllegalArgumentException("valor menor ou igual a 1");
         }
 
         int indice = 1;
@@ -47,7 +47,7 @@ public class MatematicaMais {
      */
     public static double valorPi(int precisao) throws IllegalArgumentException {
         if (precisao <= 1) {
-            throw new IllegalArgumentException("valor invalido para calculo");
+            throw new IllegalArgumentException("valor menor ou igual a 1");
         }
 
         int indice = 1;
@@ -82,7 +82,7 @@ public class MatematicaMais {
      */
     public static int fatorial(int numero) throws IllegalArgumentException {
         if (numero < 1) {
-            throw new IllegalArgumentException("valor invalido para calculo");
+            throw new IllegalArgumentException("valor menor que 1");
         }
 
         int indice = 2, fatorial = 1;
@@ -112,7 +112,8 @@ public class MatematicaMais {
     public static double logaritmo(int numero, int base)
             throws ArithmeticException {
         if (base < 2 || numero < 1) {
-            throw new ArithmeticException("valor invalido para calculo");
+            throw new ArithmeticException("base menor que 2 ou numero "
+                    + "menor que 1");
         }
 
         int indice = 1, potencia = 0;
@@ -153,7 +154,7 @@ public class MatematicaMais {
             throws IllegalArgumentException{
         if(primeiroAureo < 0 || segundoAureo < primeiroAureo || precisao <= 0){
             throw new IllegalArgumentException("um ou mais parâmetros"
-                    + " são inválidos");
+                    + " são negativos ou a precisão é igual a 0");
 	}
 
         int construtorAureoPrimario = segundoAureo,
@@ -191,7 +192,7 @@ public class MatematicaMais {
     public static boolean quadradoPerfeito(int numero)
         throws IllegalArgumentException{
 	if(numero < 1){
-            throw new IllegalArgumentException("parâmetro inválido");
+            throw new IllegalArgumentException("parâmetro menor ou igaul a 0");
 	}		
 	int indice = 0, checador = 1;
         
@@ -222,7 +223,7 @@ public class MatematicaMais {
         throws IllegalArgumentException{
 	if(dividendo < 0 || divisor <= 0){
             throw new IllegalArgumentException(
-                    "um ou mais parâmetros inválidos");
+                    "um ou mais parâmetros negativos ou divisor menor que 0");
         }
 	
 	int resto = dividendo;
@@ -251,7 +252,7 @@ public class MatematicaMais {
         throws IllegalArgumentException{
 	if(numero < 0 || indice <= 0){
             throw new IllegalArgumentException(
-                     "um ou mais parâmetros inválidos");
+                     "um ou mais parâmetros negativos ou índice menor que 0");
 	}
 	
 	double raiz =1;
@@ -282,7 +283,7 @@ public class MatematicaMais {
     public static double regraHorner(double x, int grau, double coeficiente[])
         throws IllegalArgumentException{
 	if(grau <= 1){
-            throw new IllegalArgumentException("parâmetro inválido");
+            throw new IllegalArgumentException("parâmetro menor ou igual a 1");
 	}
 		
 	double polinomio = coeficiente[grau];
@@ -310,7 +311,7 @@ public class MatematicaMais {
 */
     public static int fibonacci(int numero)throws IllegalArgumentException{
 	if(numero <= 0){
-            throw new IllegalArgumentException("parâmetro inválido");
+            throw new IllegalArgumentException("parâmetro menor ou igual a 0");
 	}
 		
 	int primeiro = 0, segundo = 1, segundoAux;
