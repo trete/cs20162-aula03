@@ -247,22 +247,4 @@ public abstract class Matematica {
         }
         return s;
     }
-
-//    public static int[] crivoErastotenes(int[] a,int n){
-//        int i = 2;
-//
-//        while(i <= n / 2){
-//            if(a[i] == 0){
-//
-//                int c = i + i;
-//
-//                while(c <= n){
-//                    a[c] = 1;
-//                    c = c + i;
-//                }
-//            }
-//            i++;
-//        }
-//        return a;
-//    }
 }
