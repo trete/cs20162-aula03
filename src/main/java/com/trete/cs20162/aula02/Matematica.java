@@ -1,5 +1,10 @@
+/*
+ * Copyright (c) 2016. Fábrica de Software - Instituto de Informática (UFG)
+ * Creative Commons Attribution 4.0 International License.
+ */
 
 package com.trete.cs20162.aula02;
+
 /**
  * Métodos de operações matemáticas.
  */
