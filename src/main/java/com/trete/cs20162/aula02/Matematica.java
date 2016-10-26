@@ -160,7 +160,7 @@ public abstract class Matematica {
         }
 
         int centena = numero / LIMIAR_CENTENA;
-        int dezena = (numero - LIMIAR_CENTENA * i) / LIMIAR_DEZENA;
+        int dezena = (numero - LIMIAR_CENTENA * centena) / LIMIAR_DEZENA;
         int unidade = numero % LIMIAR_DEZENA;
 
         return centena * centena * centena + dezena * dezena * dezena
@@ -181,7 +181,7 @@ public abstract class Matematica {
 
         int indice = PRIMEIRO_INTEIRO_MAIOR_QUE_UM;
 
-        while (i <= (numero - 1)) {
+        while (indice <= (numero - 1)) {
             if (numero % indice == LIMIAR_ENTRE_POSITIVOS_E_NEGATIVOS) {
                 return false;
             }
@@ -206,7 +206,7 @@ public abstract class Matematica {
 * primeiroNumero e segundoNumero.
 */
     public static int maiorDivisorComum(final int primeiroNumero,
-            final int segundoNumero) {
+            final int segundoNumero)throws IllegalArgumentException {
         if (segundoNumero > primeiroNumero) {
             throw new IllegalArgumentException("o primeiro parâmetro deve ser "
                     + "maior ou igual ao segundo");
