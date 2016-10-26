@@ -12,7 +12,12 @@ public class MaiorDivisorComumTest {
     
     @Test (expected = IllegalArgumentException.class)
     public void segundoNumeroNegativoInvalido(){
-        Matematica.maiorDivisorComum(30, -5);
+        Matematica.maiorDivisorComum(-5, 30);
+    }
+    
+    @Test(expected = IllegalArgumentException.class)
+    public void maiorDivisorComumComBNegativo(){
+        Matematica.maiorDivisorComum(5, -10);
     }
     
     @Test
