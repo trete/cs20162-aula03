@@ -159,11 +159,12 @@ public abstract class Matematica {
                     + " e menor que 10000");
         }
 
-        int i = numero / LIMIAR_CENTENA;
-        int j = (numero - LIMIAR_CENTENA * i) / LIMIAR_DEZENA;
-        int k = numero % LIMIAR_DEZENA;
+        int centena = numero / LIMIAR_CENTENA;
+        int dezena = (numero - LIMIAR_CENTENA * i) / LIMIAR_DEZENA;
+        int unidade = numero % LIMIAR_DEZENA;
 
-        return i * i * i + j * j * j + k * k * k == numero;
+        return centena * centena * centena + dezena * dezena * dezena
+            + unidade * unidade * unidade == numero;
     }
 
  /**
@@ -178,13 +179,13 @@ public abstract class Matematica {
             throw new IllegalArgumentException("o número deve ser maior que 1");
         }
 
-        int i = PRIMEIRO_INTEIRO_MAIOR_QUE_UM;
+        int indice = PRIMEIRO_INTEIRO_MAIOR_QUE_UM;
 
         while (i <= (numero - 1)) {
-            if (numero % i == LIMIAR_ENTRE_POSITIVOS_E_NEGATIVOS) {
+            if (numero % indice == LIMIAR_ENTRE_POSITIVOS_E_NEGATIVOS) {
                 return false;
             }
-            i++;
+            indice++;
         }
         return true;
     }
@@ -215,16 +216,16 @@ public abstract class Matematica {
                     + " devem ser positivos");
         }
 
-        int m;
+        int resto;
         int primeiroNumeroAux = primeiroNumero,
                 segundoNumeroAux = segundoNumero;
 
         while (segundoNumeroAux != LIMIAR_ENTRE_POSITIVOS_E_NEGATIVOS) {
-            m = primeiroNumeroAux % segundoNumeroAux;
+            resto = primeiroNumeroAux % segundoNumeroAux;
 
             primeiroNumeroAux = segundoNumeroAux;
 
-            segundoNumeroAux = m;
+            segundoNumeroAux = resto;
         }
 
         return primeiroNumeroAux;
@@ -244,12 +245,12 @@ public abstract class Matematica {
             throw new IllegalArgumentException("o número deve ser maior "
                     + "ou igual a 1");
         }
-        double i = PRIMEIRO_INTEIRO_MAIOR_QUE_UM, s = 1;
+        double indice = PRIMEIRO_INTEIRO_MAIOR_QUE_UM, soma = 1;
 
-        while (i <= numero) {
-            s += 1 / i;
-            i++;
+        while (indice <= numero) {
+            soma += 1 / indice;
+            indice++;
         }
-        return s;
+        return soma;
     }
 }
